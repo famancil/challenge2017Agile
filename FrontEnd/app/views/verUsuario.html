@@ -1,0 +1,135 @@
+<div>
+  <h1>{{title}}</h1>
+</div>
+
+<table class="table">
+	<thead>
+  		<tr>
+    	  <th> ID </th>
+    	  <th> Username </th>
+    	  <th> Password </th>
+          <th> Email </th>
+    	  <th> Acciones </th>
+  		</tr>                
+    </thead>
+  <tbody>
+  <tr ng-repeat="usuario in users">
+    <td>{{usuario.id}}</td>
+    <td>{{usuario.username}}</td>
+    <td>{{usuario.password}}</td>
+    <td>{{usuario.email}}</td>
+    <td> 
+    <button type="button" class="btn btn-default" ng-click="modalUpdateUser(usuario.id)">
+      <i class="glyphicon glyphicon-pencil"></i>
+      Modificar
+    </button>
+    <button type="button" class="btn btn-danger" ng-click="modalDeleteUser(usuario.id)">
+      <i class="glyphicon glyphicon-remove"></i>
+      Eliminar
+    </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="row">
+        <div class="col-md-12 text-center">
+            <div class="btn-group">
+                <button class="btn btn-primary"
+                        ng-click="modalNewUser()">
+                    <i class="glyphicon glyphicon-plus"></i> Registrar Usuario
+                </button>
+            </div>
+        </div>
+    </div>
+
+<script type="text/ng-template" id="modalNewUser.html">
+        <div class="modal-header">
+            <h3 class="modal-title text-center">Registrar Usuario</h3>
+        </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class='col-md-12'>
+                        <div class="form-group">
+                          <i class="glyphicon glyphicon-user"></i>
+                          <label for="inputUsernameNewUser">Username</label>
+                          <input type="text" class="form-control" id="inputUsernameNewUser" ng-model="newUser.username" placeholder="Username">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class='col-md-12'>
+                        <div class="form-group">
+                          <i class="glyphicon glyphicon-envelope"></i>
+                          <label for="inputEmailNewUser">Email</label>
+                          <input type="text" class="form-control" id="inputEmailNewUser" ng-model="newUser.email" placeholder="Email">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class='col-md-12'>
+                        <div class="form-group">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            <label for="inputPasswordNewUser">Contraseña</label>
+                            <input type="text" class="form-control" id="inputPasswordNewUser" ng-model="newUser.password" placeholder="Contraseña">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" ng-click="saveUser()">OK</button>
+                    <button class="btn btn-default" type="button" ng-click="closeModal()">Cancel</button>
+                </div>
+            </div>
+    </script>
+
+    <script type="text/ng-template" id="modalUpdateUser.html">
+        <div class="modal-header">
+            <h3 class="modal-title text-center">Actualizar Usuario</h3>
+        </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class='col-md-12'>
+                        <div class="form-group">
+                          <i class="glyphicon glyphicon-user"></i>
+                          <label for="inputUsernameNewUser">Username</label>
+                          <input type="text" class="form-control" id="inputUsernameNewUser" ng-model="formUser.username">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class='col-md-12'>
+                        <div class="form-group">
+                          <i class="glyphicon glyphicon-envelope"></i>
+                          <label for="inputEmailNewUser">Email</label>
+                          <input type="text" class="form-control" id="inputEmailNewUser" ng-model="formUser.email">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class='col-md-12'>
+                        <div class="form-group">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            <label for="inputPasswordNewUser">Contraseña</label>
+                            <input type="text" class="form-control" id="inputPasswordNewUser" ng-model="formUser.password">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" ng-click="updateUser(formUser.id)">OK</button>
+                    <button class="btn btn-default" type="button" ng-click="closeModal()">Cancel</button>
+                </div>
+            </div>
+    </script>
+
+
+    <script type="text/ng-template" id="modalDeleteUser.html">
+      <div class="modal-body">
+          <h3 class="modal-title">Confirmar Eliminación</h3>
+      </div>
+      <div class="modal-body">
+        <span ng-bind-template="Estas seguro que quieres borrar este usuario?"></span>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="deleteUser(userid)">OK</button>
+        <button class="btn btn-primary" ng-click="closeModal()">Cancel</button>
+      </div>
+    </script>

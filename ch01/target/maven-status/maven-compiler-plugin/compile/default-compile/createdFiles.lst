@@ -1,0 +1,9 @@
+cl/agile/core/repository/UserRepository.class
+cl/agile/core/controller/UserController.class
+cl/agile/core/Application$SecurityConfig.class
+cl/agile/core/Application$CustomConfigurerAdapter.class
+cl/agile/core/entity/User.class
+cl/agile/core/Application.class
+cl/agile/core/service/UserService.class
+cl/agile/core/controller/ViewController.class
+cl/agile/core/controller/APIController.class

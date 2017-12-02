@@ -1,0 +1,30 @@
+#
+# CONFIGURACIONES DE TOMCAT EMBED
+#
+server:
+    port: 8080
+    contextPath: /ch01
+
+#
+# CONFIGURACIONES DE SPRING
+#
+spring:    
+    mvc:
+        view:
+            prefix: /WEB-INF/views/
+            suffix: .jsp
+    ## Conexión de Base de datos
+    jpa:
+        database: POSTGRESQL
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: false
+        open-in-view: true
+    datasource:
+        platform: postgres
+        url: jdbc:postgresql://localhost:5432/ch01_BD
+        username: postgres
+        password: EAFGMA1992
+        driverClassName: org.postgresql.Driver
+
+
+
